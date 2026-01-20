@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深圳市琼宇数据科技有限公司 - 数据与AI解决方案专家</title>
+    <!-- 使用国内CDN资源 -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary-color: #0a58ca;
+            --secondary-color: #0dcaf0;
+            --dark-color: #1a1e2c;
+            --light-color: #f8f9fa;
+            --success-color: #198754;
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 导航栏样式 */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 8px;
+            color: var(--secondary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            font-size: 16px;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            left: 0;
+            bottom: -5px;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after, .nav-links a.active::after {
+            width: 100%;
+        }
+        
+        .mobile-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark-color);
+        }
+        
+        /* Hero区域样式 */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            color: white;
+            padding: 160px 0 100px;
+            text-align: center;
+            margin-top: 70px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 18px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background-color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* 通用内容区块样式 */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background: var(--secondary-color);
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* 公司简介样式 */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .company-info {
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-top: 25px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .company-info h4 {
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .company-info ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .company-info li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .company-info li:before {
+            content: "•";
+            color: var(--primary-color);
+            font-size: 20px;
+            position: absolute;
+            left: 0;
+        }
+        
+        .about-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 16px;
+            color: #666;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* 服务/产品样式 */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(13, 202, 240, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 30px;
+            color: var(--secondary-color);
+        }
+        
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        .service-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        /* 案例样式 */
+        .cases-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px 10px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #666;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: var(--transition);
+        }
+        
+        .tab-btn.active, .tab-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .case-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .case-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .case-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .case-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .case-card:hover .case-img img {
+            transform: scale(1.1);
+        }
+        
+        .case-content {
+            padding: 25px;
+        }
+        
+        .case-content h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .case-content p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .case-tag {
+            display: inline-block;
+            background: rgba(13, 202, 240, 0.1);
+            color: var(--secondary-color);
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        /* 荣誉样式 */
+        .honors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .honor-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .honor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .honor-icon {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .honor-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .honor-card p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* 联系样式 */
+        .contact-wrapper {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            padding: 50px;
+        }
+        
+        .contact-info h3 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: var(--dark-color);
+            text-align: center;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .contact-item {
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(13, 202, 240, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 24px;
+            color: var(--secondary-color);
+        }
+        
+        .contact-item h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .contact-item p {
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .contact-note {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+            color: #666;
+            font-style: italic;
+        }
+        
+        /* 页脚样式 */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 70px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--secondary-color);
+            left: 0;
+            bottom: -8px;
+        }
+        
+        .footer-column p {
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 0;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .hero {
+                padding: 140px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+            
+            .contact-wrapper {
+                padding: 30px 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .section-title h2 {
+                font-size: 26px;
+            }
+            
+            .cases-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-database"></i>
+                    <span>琼宇数据</span>
+                </div>
+                
+                <div class="mobile-toggle" id="mobileToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home" class="active">首页</a></li>
+                    <li><a href="#about">公司简介</a></li>
+                    <li><a href="#services">产品服务</a></li>
+                    <li><a href="#cases">项目案例</a></li>
+                    <li><a href="#honors">企业荣誉</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 首页Hero区域 -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1 class="animate__animated animate__fadeInDown">数据驱动未来，智能创造价值</h1>
+            <p class="animate__animated animate__fadeInUp">专注于大数据、AI与机器学习、数据中台、数据中心、数据湖、NLP、CV与大模型等前沿技术，为企业提供全方位的数据智能解决方案。</p>
+            <a href="#contact" class="cta-button animate__animated animate__fadeInUp animate__delay-1s">开启数据智能之旅</a>
+        </div>
+    </section>
+
+    <!-- 公司简介 -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>公司简介</h2>
+                <p>深圳市琼宇数据科技有限公司成立于2020年08月31日，致力于通过前沿技术帮助企业实现数字化转型</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>用数据智能驱动企业创新</h3>
+                    <p>深圳市琼宇数据科技有限公司以大数据、人工智能、云计算等前沿技术为核心，为企业提供全方位的数据智能解决方案。公司拥有自主研发的数据中台、数据湖、AI平台等核心产品，在金融、制造、零售、医疗等多个行业积累了丰富的实践经验。</p>
+                    <p>我们的团队由来自国内外顶尖科技公司的技术专家和行业顾问组成，具备深厚的技术功底和丰富的行业经验。我们致力于通过数据智能技术，帮助企业挖掘数据价值，优化决策流程，实现业务创新和增长。</p>
+                    
+                    <div class="company-info">
+                        <h4>公司基本信息：</h4>
+                        <ul>
+                            <li><strong>公司名称：</strong>深圳市琼宇数据科技有限公司</li>
+                            <li><strong>成立时间：</strong>2020年08月31日</li>
+                            <li><strong>法定代表人：</strong>刘丹</li>
+                            <li><strong>注册地址：</strong>深圳市南山区粤海街道高新区社区高新南九道53号航空航天大厦2号楼505</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="company-info">
+                        <h4>经营范围：</h4>
+                        <ul>
+                            <li>一般经营项目：计算机软硬件的开发与销售；计算机技术咨询、技术服务；数据处理和存储服务；人工智能应用软件开发与销售；大数据与人工智能技术咨询服务；电子产品销售及技术维护；经营电子商务；国内贸易；经营进出口业务。</li>
+                            <li>许可经营项目：无。</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" id="clientsCount">0</span>
+                            <span class="stat-label">服务客户</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="projectsCount">0</span>
+                            <span class="stat-label">成功项目</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="teamCount">0</span>
+                            <span class="stat-label">技术专家</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="patentsCount">0</span>
+                            <span class="stat-label">专利技术</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="公司办公环境">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品服务 -->
+    <section id="services" class="bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>产品与服务</h2>
+                <p>我们提供全方位的数据与AI解决方案，涵盖从数据基础建设到智能应用的全流程</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>大数据平台</h3>
+                    <p>提供从数据采集、存储、处理到分析的全流程大数据平台解决方案，支持海量数据实时处理与分析。</p>
+                    <div class="case-tag">数据湖/数据中台</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>人工智能与机器学习</h3>
+                    <p>基于深度学习和机器学习技术，提供NLP、CV、语音识别等AI能力，构建智能应用系统。</p>
+                    <div class="case-tag">NLP/CV/大模型</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>数据中台解决方案</h3>
+                    <p>构建企业级数据中台，实现数据资产化、服务化，打破数据孤岛，赋能业务创新。</p>
+                    <div class="case-tag">数据中心/数据治理</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>数据分析与可视化</h3>
+                    <p>提供多维度数据分析、数据挖掘和可视化展示，帮助决策者快速洞察业务趋势。</p>
+                    <div class="case-tag">BI/数据可视化</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>数据安全与合规</h3>
+                    <p>提供数据安全防护、隐私计算、数据脱敏等解决方案，确保数据全生命周期安全合规。</p>
+                    <div class="case-tag">数据安全/隐私保护</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>定制化开发</h3>
+                    <p>根据企业特定需求，提供定制化数据智能解决方案，包括系统开发、集成和运维服务。</p>
+                    <div class="case-tag">定制开发/系统集成</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目案例 -->
+    <section id="cases">
+        <div class="container">
+            <div class="section-title">
+                <h2>项目案例</h2>
+                <p>我们在多个行业领域拥有丰富的成功案例，助力企业实现数字化转型</p>
+            </div>
+            
+            <div class="cases-tabs">
+                <button class="tab-btn active" data-filter="all">全部案例</button>
+                <button class="tab-btn" data-filter="finance">金融行业</button>
+                <button class="tab-btn" data-filter="manufacturing">智能制造</button>
+                <button class="tab-btn" data-filter="retail">智慧零售</button>
+                <button class="tab-btn" data-filter="healthcare">医疗健康</button>
+            </div>
+            
+            <div class="cases-grid">
+                <div class="case-card" data-category="finance">
+                    <div class="case-img">
+                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="金融风险控制系统">
+                    </div>
+                    <div class="case-content">
+                        <h3>银行智能风控系统</h3>
+                        <p>为某大型商业银行构建基于大数据的智能风控系统，整合多源数据，实现实时风险监测和预警，降低信贷损失30%以上。</p>
+                        <div class="case-tag">大数据/风险控制</div>
+                    </div>
+                </div>
+                
+                <div class="case-card" data-category="manufacturing">
+                    <div class="case-img">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="智能制造系统">
+                    </div>
+                    <div class="case-content">
+                        <h3>智能工厂数据中台</h3>
+                        <p>为某汽车制造企业搭建数据中台，整合生产、供应链、设备数据，实现生产全流程可视化，生产效率提升25%。</p>
+                        <div class="case-tag">数据中台/智能制造</div>
+                    </div>
+                </div>
+                
+                <div class="case-card" data-category="retail">
+                    <div class="case-img">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="智慧零售系统">
+                    </div>
+                    <div class="case-content">
+                        <h3>零售智能推荐平台</h3>
+                        <p>为大型连锁零售企业构建基于AI的智能推荐系统，通过用户行为分析和商品关联挖掘，提升销售额18%。</p>
+                        <div class="case-tag">AI/推荐系统</div>
+                    </div>
+                </div>
+                
+                <div class="case-card" data-category="healthcare">
+                    <div class="case-img">
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="医疗影像分析系统">
+                    </div>
+                    <div class="case-content">
+                        <h3>医疗影像AI分析平台</h3>
+                        <p>为三甲医院研发基于CV的医疗影像分析系统，辅助医生进行病灶识别和诊断，准确率达到96%以上。</p>
+                        <div class="case-tag">CV/医疗AI</div>
+                    </div>
+                </div>
+                
+                <div class="case-card" data-category="finance">
+                    <div class="case-img">
+                        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="智能投顾系统">
+                    </div>
+                    <div class="case-content">
+                        <h3>证券智能投顾系统</h3>
+                        <p>为证券公司构建基于NLP和大模型的智能投顾系统，实现自动化投资分析和个性化投资建议。</p>
+                        <div class="case-tag">NLP/大模型/金融科技</div>
+                    </div>
+                </div>
+                
+                <div class="case-card" data-category="manufacturing">
+                    <div class="case-img">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="工业物联网平台">
+                    </div>
+                    <div class="case-content">
+                        <h3>工业物联网大数据平台</h3>
+                        <p>为装备制造企业构建工业物联网平台，实时采集设备数据，实现预测性维护，降低设备故障率40%。</p>
+                        <div class="case-tag">物联网/大数据</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 企业荣誉 -->
+    <section id="honors" class="bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>企业荣誉</h2>
+                <p>凭借卓越的技术实力和创新能力，我们获得了行业和客户的广泛认可</p>
+            </div>
+            
+            <div class="honors-grid">
+                <div class="honor-card">
+                    <div class="honor-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>国家高新技术企业</h3>
+                    <p>2022年通过国家高新技术企业认定，持续获得研发支持</p>
+                </div>
+                
+                <div class="honor-card">
+                    <div class="honor-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>CMMI 3级认证</h3>
+                    <p>2023年通过CMMI 3级认证，软件研发能力达到国际标准</p>
+                </div>
+                
+                <div class="honor-card">
+                    <div class="honor-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>数据智能创新奖</h3>
+                    <p>2023年获得粤港澳大湾区数据智能创新大赛优秀奖</p>
+                </div>
+                
+                <div class="honor-card">
+                    <div class="honor-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>AI优秀解决方案</h3>
+                    <p>2022年入选深圳市人工智能优秀解决方案典型案例</p>
+                </div>
+                
+                <div class="honor-card">
+                    <div class="honor-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>ISO 27001认证</h3>
+                    <p>通过国际信息安全管理体系认证，保障客户数据安全</p>
+                </div>
+                
+                <div class="honor-card">
+                    <div class="honor-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>最佳合作伙伴</h3>
+                    <p>获得华为云、腾讯云等云厂商最佳合作伙伴称号</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>联系我们</h2>
+                <p>欢迎与我们联系，探讨数据智能如何助力您的业务发展</p>
+            </div>
+            
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>联系信息</h3>
+                    
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h4>公司地址</h4>
+                            <p>深圳市南山区粤海街道高新区社区高新南九道53号航空航天大厦2号楼505</p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <h4>联系电话</h4>
+                            <p>0755-8888 6666</p>
+                            <p>+86 136 8888 6666</p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h4>电子邮箱</h4>
+                            <p>contact@qiongyudata.com</p>
+                            <p>business@qiongyudata.com</p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h4>工作时间</h4>
+                            <p>周一至周五 9:00-18:00</p>
+                            <p>周六 10:00-16:00（预约制）</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-note">
+                        <p>如需咨询业务或预约来访，请直接拨打联系电话或发送邮件至指定邮箱，我们将在24小时内回复。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>深圳市琼宇数据科技有限公司</h3>
+                    <p>专注于大数据、AI与机器学习、数据中台等前沿技术，为企业提供全方位的数据智能解决方案。</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-weibo"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>快速链接</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">首页</a></li>
+                        <li><a href="#about">公司简介</a></li>
+                        <li><a href="#services">产品服务</a></li>
+                        <li><a href="#cases">项目案例</a></li>
+                        <li><a href="#honors">企业荣誉</a></li>
+                        <li><a href="#contact">联系我们</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>产品服务</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">大数据平台</a></li>
+                        <li><a href="#">人工智能与机器学习</a></li>
+                        <li><a href="#">数据中台解决方案</a></li>
+                        <li><a href="#">数据分析与可视化</a></li>
+                        <li><a href="#">数据安全与合规</a></li>
+                        <li><a href="#">定制化开发</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>关注我们</h3>
+                    <p>关注我们的微信公众号，获取最新技术资讯和行业动态</p>
+                    <div style="background: #fff; padding: 10px; border-radius: 5px; display: inline-block; margin-top: 10px;">
+                        <div style="width: 120px; height: 120px; background: #eee; display: flex; align-items: center; justify-content: center; color: #999;">
+                            [公众号二维码]
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2020-2023 深圳市琼宇数据科技有限公司 版权所有 | 粤ICP备12345678号</p>
+                <p style="margin-top: 5px;">注册地址：深圳市南山区粤海街道高新区社区高新南九道53号航空航天大厦2号楼505</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 使用国内CDN引入jQuery -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        // 页面加载完成后执行
+        $(document).ready(function() {
+            // 移动端菜单切换
+            $('#mobileToggle').click(function() {
+                $('#navLinks').toggleClass('active');
+                $(this).find('i').toggleClass('fa-bars fa-times');
+            });
+            
+            // 点击导航链接时关闭移动端菜单
+            $('.nav-links a').click(function() {
+                if ($('#mobileToggle').is(':visible')) {
+                    $('#navLinks').removeClass('active');
+                    $('#mobileToggle i').removeClass('fa-times').addClass('fa-bars');
+                }
+                
+                // 添加活动类到当前导航项
+                $('.nav-links a').removeClass('active');
+                $(this).addClass('active');
+            });
+            
+            // 平滑滚动到锚点
+            $('a[href^="#"]').click(function(e) {
+                e.preventDefault();
+                var target = $(this).attr('href');
+                
+                if (target === '#') return;
+                
+                $('html, body').animate({
+                    scrollTop: $(target).offset().top - 70
+                }, 800);
+            });
+            
+            // 项目案例筛选
+            $('.tab-btn').click(function() {
+                var filter = $(this).data('filter');
+                
+                // 更新活动标签
+                $('.tab-btn').removeClass('active');
+                $(this).addClass('active');
+                
+                // 筛选案例
+                if (filter === 'all') {
+                    $('.case-card').fadeIn();
+                } else {
+                    $('.case-card').each(function() {
+                        if ($(this).data('category') === filter) {
+                            $(this).fadeIn();
+                        } else {
+                            $(this).fadeOut();
+                        }
+                    });
+                }
+            });
+            
+            // 数字递增动画
+            function animateCounter(element, target, duration) {
+                var start = 0;
+                var increment = target / (duration / 16); // 60fps
+                var timer = setInterval(function() {
+                    start += increment;
+                    if (start >= target) {
+                        element.text(target);
+                        clearInterval(timer);
+                    } else {
+                        element.text(Math.floor(start));
+                    }
+                }, 16);
+            }
+            
+            // 当滚动到公司简介区域时触发数字动画
+            function checkCounters() {
+                var aboutSection = $('#about');
+                var aboutTop = aboutSection.offset().top;
+                var windowBottom = $(window).scrollTop() + $(window).height();
+                
+                if (windowBottom > aboutTop + 100 && !aboutSection.hasClass('animated')) {
+                    aboutSection.addClass('animated');
+                    
+                    animateCounter($('#clientsCount'), 120, 2000);
+                    animateCounter($('#projectsCount'), 86, 2000);
+                    animateCounter($('#teamCount'), 45, 2000);
+                    animateCounter($('#patentsCount'), 12, 2000);
+                }
+            }
+            
+            // 监听滚动事件
+            $(window).scroll(function() {
+                // 更新导航活动状态
+                var scrollPos = $(document).scrollTop() + 80;
+                
+                $('.nav-links a').each(function() {
+                    var currLink = $(this);
+                    var refElement = $(currLink.attr("href"));
+                    
+                    if (refElement.length && refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+                        $('.nav-links a').removeClass("active");
+                        currLink.addClass("active");
+                    }
+                });
+                
+                // 检查是否滚动到数字区域
+                checkCounters();
+            });
+            
+            // 初始检查计数器（如果页面加载时已经滚动到该区域）
+            checkCounters();
+        });
+    </script>
+</body>
+</html>
