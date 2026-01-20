@@ -1,0 +1,2 @@
+# szqydata.github.io
+index
